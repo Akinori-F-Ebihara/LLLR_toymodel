@@ -7,6 +7,7 @@
 - cuDNN 7.6.4.38
 
 ## Tutorial 
+The structure of this project is inherited from [the SPRT-TANDEM code](https://github.com/TaikiMiyagawa/SPRT-TANDEM).  
 
 ## Example Results
 
