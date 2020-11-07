@@ -11,7 +11,10 @@
 ## Example Results
 
 ## Files and Directories
-
+ - utils
+ - config
+ - example_results
+  
 ## Citation
 ___Please cite our paper if you use the whole or a part of our codes.___
 ```
