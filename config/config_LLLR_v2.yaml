@@ -1,0 +1,577 @@
+root_dir: "/raid6/ebihara"
+project_name: "LLLR_toymodel"
+subproject_name: "LLLR_4rebuttal"
+name_dataset: "Multivariate_Gaussian"
+root_tblogs: "/raid6/ebihara/tensorflow/logs/LLLR_toymodel/tblogs"
+root_dblogs: "/raid6/ebihara/tensorflow/logs/LLLR_toymodel/dblogs"
+root_ckptlogs: "/raid6/ebihara/tensorflow/logs/LLLR_toymodel/ckptlogs"
+
+gpu: 0
+max_to_keep: 3
+exp_phase: 'stat'
+comment: "LLLRv2" 
+
+num_classes: 2
+data_dim: 100
+density_offset: 2
+activation: "relu"
+num_iter: 30000
+train_display_step: 50
+validation_step: 50
+
+batch_size: 1000
+learning_rates: [1e-4, 1e-4]
+lr_decay_steps:  [100000000,]
+weight_decay: 0.0001
+name_optimizer: "adam"
+
+flag_resume: False
+path_resume: "/raid6/ebihara/tensorflow/logs/LLLR_toymodel/ckptlogs"
+flag_seed: False
+flag_wd: True
+seed: 7
+
+param_CE_loss: 0.
+param_LLR_loss: 0.
+param_LLLR_v2: 1.
+param_KLIEP_loss: 0.
+
+
+
+# ############################## Fix here ##############################
+# # Path to tensorboard logs: 'root_tblogs'/'subproject_name'_'exp_phase'/'comment'_'time_stamp'/eventsXXX
+# # Path to database files: 'root_dblogs'/'subproject_name'_'exp_phase'.db
+# # Path to checkpoint files: 'root_ckptlogs'/'subproject_name'_'exp_phase'/'comment'_'time_stamp'/ckptXXX
+
+# root_dir: "/data/t-miyagawa"
+# project_name: "sprt_multiclass"
+# name_dataset: "nosaic_mnist"
+# root_tblogs: "/data/t-miyagawa/sprt_multiclass/nosaic_mnist/tblogs"
+# root_dblogs: "/data/t-miyagawa/sprt_multiclass/nosaic_mnist/dblogs"
+# root_ckptlogs: "/data/t-miyagawa/sprt_multiclass/nosaic_mnist/ckptlogs"
+# tfr_train: "/data/t-miyagawa/nosaic_mnist_seed7/nosaic_mnist_feat_train.tfrecords"
+# tfr_test: "/data/t-miyagawa/nosaic_mnist_seed7/nosaic_mnist_feat_test.tfrecords"
+# num_traindata: 50000
+# num_trainsubset: 50000 # Undersampling is supported
+# num_validdata: 10000
+# num_testdata: 10000
+# duration: 20
+# feat_dim: 128
+# #=========================== Fix here =====================================#
+
+# # Training config
+
+
+
+# subproject_name: "10thOO_lllrD_tuning20200702"  ################!?!?#######
+# comment: "_" 
+# num_trials: 6 ############################
+# exp_phase: "stat" #########################stat, tuning, trial
+
+# flag_resume: False
+# path_resume: "/data/t-miyagawa/sprt_multiclass/nosaic_mnist/ckptlogs/debug_valid_loop_ckpt_stat/debug_valid_loop_ckpt_20200227_105623935" # is ignored if flag_resume=False
+# flag_seed: False
+# seed: 7
+# train_display_step: 20
+# valid_step: 50
+# max_to_keep: 3
+# num_thresh: 3 # for SPRT
+# sparsity: "logspace" # for threshold_generator
+
+# # Model 
+# param_multiplet_loss: 1. ###################################
+# width_lstm: 128 #128 ############################################## w512 (width 512)
+# activation: "tanh" # sigmoid, linear, ...
+# flag_wd: True
+
+# # Hyperparameters
+# num_iter: 5000 
+# batch_size: 500
+# decay_steps: [100000000,]
+# dropout: 0.
+
+# # Data properties
+# num_classes: 10
+
+# # Search space for optuna: possibilities more than 1000 may be too many, takes more than 200 trials
+# list_lr: [1e-2, 1e-3, 1e-4]
+# list_opt: ["adam", "rmsprop"]
+# list_wd: [0.001, 0.0001, 0.00001]
+# list_do: [0.]
+# list_bs: [500]
+# list_lllr: [0.1, 1., 10., 100., 1000] ##########################
+# #list_lllr: [0.] # for _ablM_
+
+# # 20200702
+# ###########################################################
+# ### Daily use
+# # order_sprt: 10
+# # oblivious: True
+# # version: "D" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-2, 1e-3]
+# # weight_decay: 0.0001
+# # name_optimizer: "adam"
+# # param_llr_loss: 1. # meaningless when tuning
+
+# # ### 10thOO_ablL_tuning20200702
+# # order_sprt: 10
+# # oblivious: True
+# # version: "D" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-, 1e-3]
+# # weight_decay: 
+# # name_optimizer: ""
+# # param_llr_loss:  # meaningless when tuning
+
+# # ### 0thOO_ver20200721_tuning_stat.db
+# # order_sprt: 0
+# # oblivious: True
+# # version: "D" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.0001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 10. # meaningless when tuning
+
+# # ### 1thOO_ver20200721_tuning_stat.db
+# # order_sprt: 1
+# # oblivious: True
+# # version: "D" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.00001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 10. # meaningless when tuning
+
+# # ### 2thOO_ver20200721_tuning_stat.db
+# # order_sprt: 2
+# # oblivious: True
+# # version: "D" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.0001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 10. # meaningless when tuning
+
+# # ### 5thOO_ver20200721_tuning_stat.db
+# # order_sprt: 5
+# # oblivious: True
+# # version: "D" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.0001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 10. # meaningless when tuning
+
+# # ### 19thOO_ver20200721_tuning_stat.db
+# # order_sprt: 19
+# # oblivious: True
+# # version: "D" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 100. # meaningless when tuning
+
+# ###########################################################
+
+# # ### 10thO_ablM_tuning20200702
+# # order_sprt: 10
+# # oblivious: False
+# # version: "A" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.00001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 0. # meaningless when tuning
+
+# # ###10thO_lllrA_tuning20200702
+# # order_sprt: 10
+# # oblivious: False
+# # version: "A" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-2, 1e-3]
+# # weight_decay: 0.001
+# # name_optimizer: "adam"
+# # param_llr_loss: 100. # meaningless when tuning
+
+# # ### 10thO_lllrB_tuning20200702
+# # order_sprt: 10
+# # oblivious: False
+# # version: "B" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.0001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 100. # meaningless when tuning
+
+# # ### 10thO_lllrC_tuning20200702
+# # order_sprt: 10
+# # oblivious: False
+# # version: "C" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-2, 1e-3]
+# # weight_decay: 0.0001
+# # name_optimizer: "adam"
+# # param_llr_loss: 0.1 # meaningless when tuning
+
+# # ### 10thO_lllrD_tuning20200702
+# # order_sprt: 10
+# # oblivious: False
+# # version: "D" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.0001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 10. # meaningless when tuning
+
+# # ### 10thO_mlllrA_tuning20200702
+# # order_sprt: 10
+# # oblivious: False
+# # version: "A" # LLLR version A-D
+# # flag_mgn: True # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.0001
+# # name_optimizer: "adam"
+# # param_llr_loss: 0.1 # meaningless when tuning
+
+# # ### 10thO_mlllrB_tuning20200702
+# # order_sprt: 10
+# # oblivious: False
+# # version: "B" # LLLR version A-D
+# # flag_mgn: True # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 0.1 # meaningless when tuning
+
+# # ### 10thO_mlllrC_tuning20200702
+# # order_sprt: 10
+# # oblivious: False
+# # version: "C" # LLLR version A-D
+# # flag_mgn: True # margin
+# # learning_rates: [1e-4, 1e-3]
+# # weight_decay: 0.00001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 0.1 # meaningless when tuning
+
+# # ### 10thO_mlllrD_tuning20200702
+# # order_sprt: 10
+# # oblivious: False
+# # version: "D" # LLLR version A-D
+# # flag_mgn: True # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.00001
+# # name_optimizer: "adam"
+# # param_llr_loss: 0.1 # meaningless when tuning
+
+# # ### 10thOO_ablM_tuning20200702
+# # order_sprt: 10
+# # oblivious: True
+# # version: "A" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.0001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 0. # meaningless when tuning
+
+# # ### 10thOO_ablL_tuning20200702
+# # order_sprt: 10
+# # oblivious: True
+# # version: "D" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-2, 1e-3]
+# # weight_decay: 0.001
+# # name_optimizer: "adam"
+# # param_llr_loss: 100. # meaningless when tuning
+
+# # ### 1thO_ablM_tuning20200702
+# # order_sprt: 1
+# # oblivious: False
+# # version: "A" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.00001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 0. # meaningless when tuning
+
+# # ### 1thO_mlllrA_tuning20200702
+# # order_sprt: 1
+# # oblivious: False
+# # version: "A" # LLLR version A-D
+# # flag_mgn: True # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.00001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 0.1 # meaningless when tuning
+
+# # ### 1thO_mlllrB_tuning20200702
+# # order_sprt: 1
+# # oblivious: False
+# # version: "B" # LLLR version A-D
+# # flag_mgn: True # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.0001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 0.1 # meaningless when tuning
+
+# # ### 1thO_mlllrC_tuning20200702
+# # order_sprt: 1
+# # oblivious: False
+# # version: "C" # LLLR version A-D
+# # flag_mgn: True # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.0001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 0.1 # meaningless when tuning
+
+# # ### 1thO_mlllrD_tuning20200702
+# # order_sprt: 1
+# # oblivious: False
+# # version: "D" # LLLR version A-D
+# # flag_mgn: True # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.00001
+# # name_optimizer: "adam"
+# # param_llr_loss: 0.1 # meaningless when tuning
+
+# # ### 10thO_ablMw512_tuning20200702 Caution!!: set width_lstm = 512 !!!!!!!
+# # order_sprt: 10
+# # oblivious: False
+# # version: "A" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.00001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 0. # meaningless when tuning
+
+# # ### 10thO_lllrDw512_tuning20200702  Caution!!: set width_lstm = 512 !!!!!!!
+# # order_sprt: 10
+# # oblivious: False
+# # version: "D" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.00001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 0.1 # meaningless when tuning
+
+# # ### 10thOO_lllrA_tuning20200702
+# # order_sprt: 10
+# # oblivious: True
+# # version: "A" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.0001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 1000. # meaningless when tuning
+
+# # ### 10thOO_lllrB_tuning20200702
+# # order_sprt: 10
+# # oblivious: True
+# # version: "B" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.0001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 100. # meaningless when tuning
+
+# # ### 10thOO_lllrC_tuning20200702
+# # order_sprt: 10
+# # oblivious: True
+# # version: "C" # LLLR version A-D
+# # flag_mgn: False # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.0001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 0.1 # meaningless when tuning
+
+# # ### 10thOO_lllrD_tuning20200702 # best model ###########
+# order_sprt: 10
+# oblivious: True
+# version: "D" # LLLR version A-D
+# flag_mgn: False # margin
+# learning_rates: [1e-3, 1e-3]
+# weight_decay: 0.0001
+# name_optimizer: "adam"
+# param_llr_loss: 100. # meaningless when tuning
+
+# # ### 10thOO_mlllrA_tuning20200702
+# # order_sprt: 10
+# # oblivious: True
+# # version: "A" # LLLR version A-D
+# # flag_mgn: True # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.00001
+# # name_optimizer: "adam"
+# # param_llr_loss: 0.1 # meaningless when tuning
+
+# # ### 10thOO_mlllrB_tuning20200702
+# # order_sprt: 10
+# # oblivious: True
+# # version: "B" # LLLR version A-D
+# # flag_mgn: True # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.0001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 0.1 # meaningless when tuning
+
+# # ### 10thOO_mlllrC_tuning20200702
+# # order_sprt: 10
+# # oblivious: True
+# # version: "C" # LLLR version A-D
+# # flag_mgn: True # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.001
+# # name_optimizer: "rmsprop"
+# # param_llr_loss: 0.1 # meaningless when tuning
+
+# # ### 10thOO_mlllrD_tuning20200702
+# # order_sprt: 10
+# # oblivious: True
+# # version: "D" # LLLR version A-D
+# # flag_mgn: True # margin
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.00001
+# # name_optimizer: "adam"
+# # param_llr_loss: 0.1 # meaningless when tuning
+# ###########################################################
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# #20200609
+# ###########################################################
+# ### 0thO_tuning20200609_tuning.db
+# # order_sprt: 0
+# # oblivious: False
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.0001
+# # name_optimizer: "adam"
+# # dropout: 0.
+# # param_llr_loss: 1. 
+# ### 1thO_tuning20200609_tuning.db
+# # order_sprt: 1
+# # oblivious: False
+# # learning_rates: [1e-2, 1e-3]
+# # weight_decay: 0.001
+# # name_optimizer: "adam"
+# # dropout: 0.
+# # param_llr_loss: 1. 
+# ### 1thOO_tuning20200609_tuning.db
+# # order_sprt: 1
+# # oblivious: True
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.0001
+# # name_optimizer: "adam"
+# # dropout: 0.
+# # param_llr_loss: 1. 
+# ### 2thO_tuning20200609_tuning.db
+# # order_sprt: 2
+# # oblivious: False
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.00001
+# # name_optimizer: "rmsprop"
+# # dropout: 0.
+# # param_llr_loss: 1. 
+# ### 2thOO_tuning20200609_tuning.db
+# # order_sprt: 2
+# # oblivious: True
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.001
+# # name_optimizer: "adam"
+# # dropout: 0.
+# # param_llr_loss: 1. 
+# ### 5thO_tuning20200609_tuning.db
+# # order_sprt: 5
+# # oblivious: False
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.00001
+# # name_optimizer: "rmsprop"
+# # dropout: 0.
+# # param_llr_loss: 1. 
+# ### 5thOO_tuning20200609_tuning.db
+# # order_sprt: 5
+# # oblivious: True
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.00001
+# # name_optimizer: "rmsprop"
+# # dropout: 0.
+# # param_llr_loss: 1. 
+# ### 10thO_tuning20200609_tuning.db
+# # order_sprt: 10
+# # oblivious: False
+# # learning_rates: [1e-2, 1e-3]
+# # weight_decay: 0.001
+# # name_optimizer: "adam"
+# # dropout: 0.
+# # param_llr_loss: 1. 
+# ### 10thOO_tuning20200609_tuning.db
+# # order_sprt: 10
+# # oblivious: True
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.00001
+# # name_optimizer: "rmsprop"
+# # dropout: 0.
+# # param_llr_loss: 1. 
+# ### 19thO_tuning20200609_tuning.db
+# # order_sprt: 19
+# # oblivious: False
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.001
+# # name_optimizer: "adam"
+# # dropout: 0.
+# # param_llr_loss: 1. 
+# ### 19thOO_tuning20200609_tuning.db
+# # order_sprt: 19
+# # oblivious: True
+# # learning_rates: [1e-4, 1e-3]
+# # weight_decay: 0.001
+# # name_optimizer: "rmsprop"
+# # dropout: 0.
+# # param_llr_loss: 1. 
+# ### 0thO_ablM_tuning20200609_tuning.db
+# # order_sprt: 0
+# # oblivious: False
+# # learning_rates: [1e-3, 1e-3]
+# # weight_decay: 0.00001
+# # name_optimizer: "rmsprop"
+# # dropout: 0.
+# # param_llr_loss: 1. 
+# ### 0thO_ablL_tuning20200609_tuning.db
+# # order_sprt: 0
+# # oblivious: False
+# # learning_rates: [1e-2, 1e-3]
+# # weight_decay: 0.00001
+# # name_optimizer: "adam"
+# # dropout: 0.
+# # param_llr_loss: 1. 
+# ### 10thO_ablM_tuning20200609_tuning.db
+# # order_sprt: 10
+# # oblivious: False
+# # learning_rates: [1e-2, 1e-3]
+# # weight_decay: 0.001
+# # name_optimizer: "adam"
+# # dropout: 0.
+# # param_llr_loss: 1. 
+# ### 10thO_ablL_tuning20200609_tuning.db
+# # order_sprt: 10
+# # oblivious: False
+# # learning_rates: [1e-2, 1e-3]
+# # weight_decay: 0.0001
+# # name_optimizer: "adam"
+# # dropout: 0.
+# # param_llr_loss: 1. 
+# ##########################################################
+
