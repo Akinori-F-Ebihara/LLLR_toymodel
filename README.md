@@ -1,4 +1,4 @@
-# Probability density ratio estimation with the Loss for Log-Likelihood Ratio
+# Probability density ratio estimation with the Loss for Log-Likelihood Ratio (LLLR)
 This article supplements our paper, [Deep Neural Networks for the Sequential Probability Ratio Test on Non-i.i.d. Data Series](https://arxiv.org/abs/2006.05587).  
 
 Below we test whether the proposed Loss for Log-Likelihood Ratio Loss (LLLR) can help a neural network estimating the true probability density ratio. Providing the ground-truth probability density ratio was difficult in the original paper because it was prohibitive to find the true probability distribution out of the public databases containing real-world scenes. Thus, we create a toy-model estimating the probability density ratio of the two multivariate Gaussian distributions. Experimental results show that a multi-layer perceptron (MLP) trained with the proposed LLLR achieves smaller estimation error than an MLP with crossentropy (CE)-loss.
@@ -15,7 +15,7 @@ The task for the neural network is to estimate the density ratio:
 \hat{r}(x_i) = \frac{\hat{p}_1(x_i)}{\hat{p}_0(x_i)}.
 \end{equation}
 
-Here, $x$ is sampled from one of the two Gaussian distributions, $p_0$ or $p_1$, and is associated with class label $y=0$ or $y=1$, respectively. We compared 2 loss functions, CE-loss and LLLR:
+Here, $x$ is sampled from one of the two Gaussian distributions, $p_0$ or $p_1$, and is associated with class label $y=0$ or $y=1$, respectively. We compared the two loss functions, CE-loss and LLLR:
 
 \begin{equation}
 \mathrm{LLLR}:= \frac{1}{N}\sum_{i=1}^{N}
@@ -46,7 +46,7 @@ Evaluation metric is normalized mean squared error (NMSE, [1]):
 - cuDNN 7.6.4.38
 
 ## Tutorial 
-The structure of this repo is inherited from [the original SPRT-TANDEM code](https://github.com/TaikiMiyagawa/SPRT-TANDEM). For the details, see the README of the original code.
+The structure of this repo is inherited from [the original SPRT-TANDEM repo](https://github.com/TaikiMiyagawa/SPRT-TANDEM). For the details, see the README of the repo.
 - To train the MLP, use train_MLP.py. To change parameters including weights for the LLLE and CE-loss, modify .yaml files under the config folder.  
 
 - To visualize the example results, use example_results/plot_example_runs.ipynb. Also see the plot below.
