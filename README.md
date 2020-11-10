@@ -1,15 +1,18 @@
 # LLLR: Toy-model
- A simple 3-layer fully connected network performing the density ratio estimation using the loss for log-likelihood ratio estimation (LLLR).
+A simple 3-layer fully connected network performing the density ratio estimation using the loss for log-likelihood ratio estimation (LLLR).
+
+The structure of this project is inherited from [the SPRT-TANDEM code](https://github.com/TaikiMiyagawa/SPRT-TANDEM).  
 
 ## Tested Environment
+- Python 3.5
 - tensorflow 2.0.0
 - CUDA 10.0
 - cuDNN 7.6.4.38
 
 ## Tutorial 
-The structure of this project is inherited from [the SPRT-TANDEM code](https://github.com/TaikiMiyagawa/SPRT-TANDEM).  
 
 ## Example Results
+![iteration-NMSE plot](./example_results/LLLRvsCE_NMSE.png)
 
 ## Files and Directories
  - utils
