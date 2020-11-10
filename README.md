@@ -15,7 +15,7 @@ The task for the neural network is to estimate the density ratio:
 \hat{r}(x_i) = \frac{\hat{p}_1(x_i)}{\hat{p}_0(x_i)}.
 \end{equation}
 
-Here, $x$ is sampled from one of the two Gaussian distributions, $p_0$ or $p_1$, and is associated with class label $y=0$ or $y=1$, respectively. We compared 2 loss functions, CE-loss and LLLR:
+Here, $x$ is sampled from one of the two Gaussian distributions, $p_0$ or $p_1$, and is associated with class label $y=0$ or $y=1$, respectively. We compared the two loss functions, CE-loss and LLLR:
 
 \begin{equation}
 \mathrm{LLLR}:= \frac{1}{N}\sum_{i=1}^{N}
