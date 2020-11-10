@@ -46,7 +46,7 @@ Evaluation metric is normalized mean squared error (NMSE, [1]):
 - cuDNN 7.6.4.38
 
 ## Tutorial 
-The structure of this repo is inherited from [the original SPRT-TANDEM code](https://github.com/TaikiMiyagawa/SPRT-TANDEM). For the details, see the README of the original code.
+The structure of this repo is inherited from [the original SPRT-TANDEM repo](https://github.com/TaikiMiyagawa/SPRT-TANDEM). For the details, see the README of the repo.
 - To train the MLP, use train_MLP.py. To change parameters including weights for the LLLE and CE-loss, modify .yaml files under the config folder.  
 
 - To visualize the example results, use example_results/plot_example_runs.ipynb. Also see the plot below.
