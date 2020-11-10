@@ -36,7 +36,7 @@ from models.optimizers import get_optimizer
 from models.losses import get_gradient_DRE
 
 # load parameters
-config_path = '/raid6/ebihara/python/SPRTproject/Density_Estimation_with_LLLR/config/config_KLIEP.yaml'
+config_path = '/raid6/ebihara/python/SPRTproject/Density_Estimation_with_LLLR/config/config_LLLR.yaml'
 config = load_yaml(config_path)
 
 # for train logs
@@ -48,10 +48,8 @@ def tblog_writer(tblogger, losses, eval_metrics, global_step, phase):
         losses[1], int(global_step))
     tblogger.scalar_summary("{}_loss/LLLR".format(phase),
         losses[2], int(global_step))
-    tblogger.scalar_summary("{}_loss/LLLRv2".format(phase),
-        losses[3], int(global_step))
     tblogger.scalar_summary("{}_loss/KLIEP".format(phase),
-        losses[4], int(global_step))
+        losses[3], int(global_step))
 
     # results of density-ratio estimation
     # Normalized Mean Squared Error (NMSE)
@@ -218,7 +216,6 @@ if __name__ == '__main__':
                 calc_grad=True,
                 param_CE_loss=config["param_CE_loss"],
                 param_LLR_loss=config["param_LLR_loss"],
-                param_LLLR_v2=config["param_LLLR_v2"],
                 param_KLIEP_loss=config['param_KLIEP_loss'],
                 param_wd=config["weight_decay"]
                 )
@@ -257,7 +254,6 @@ if __name__ == '__main__':
                     calc_grad=False,
                     param_CE_loss=config["param_CE_loss"],
                     param_LLR_loss=config["param_LLR_loss"],
-                    param_LLLR_v2=config["param_LLLR_v2"],
                     param_KLIEP_loss=config['param_KLIEP_loss'],
                     param_wd=config["weight_decay"]
                     )
