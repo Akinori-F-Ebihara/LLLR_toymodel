@@ -13,7 +13,7 @@ The task for the neural network is to estimate the density ratio:
 
 \begin{equation}
 \hat{r}(x) = \frac{\hat{p}_1(x)}{\hat{p}_0(x)}.
-\end{end}
+\end{equation}
 
 Here, $x$ is sampled either from $p_0$ or $p_1$. We compared 2 loss functions, LLLR and CE-loss.
 
