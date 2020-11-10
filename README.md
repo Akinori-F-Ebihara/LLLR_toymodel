@@ -22,7 +22,7 @@ A simple Neural network consists of 3-layer fully-connected network with nonline
 Evaluation metric is normalized mean squared error (NMSE, [1]):
 
 \begin{equation}
-NMSE:= \frac{1}{N}
+\mathrm{NMSE}:= \frac{1}{N}
 \end{equation}
 
 
