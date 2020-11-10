@@ -23,6 +23,8 @@ Evaluation metric is normalized mean squared error (NMSE, [1]):
 
 \begin{equation}
 \mathrm{NMSE}:= \frac{1}{N}\sum_{i=1}^{N}
+\left(
+\right)
 \end{equation}
 
 
