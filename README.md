@@ -20,7 +20,7 @@ Here, $x$ is sampled from one of the two Gaussian distributions, $p_0$ or $p_1$,
 \begin{equation}
 \mathrm{LLLR}:= \frac{1}{N}\sum_{i=1}^{N}
 \left|
-    y - \log\hat{r_i}
+    y - \sigma\left(\log\hat{r_i}\right)
 \right|
 \end{equation}.
 
