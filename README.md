@@ -1,15 +1,20 @@
-# LLLR: Toy-model
+# Loss for Log-Likelihood Ratio Loss for the probability density ratio estimation
+This article supplements our paper, [Deep Neural Networks for the Sequential Probability Ratio Test on Non-i.i.d. Data Series](https://arxiv.org/abs/2006.05587). Below we test whether the proposed Loss for Log-Likelihood Ratio Loss (LLLR) can help a neural network estimating the true probability density ratio. Providing ground-trugh probability density ratio was difficult in the original paper: this was because it was prohibitive to find the true probability distribution out of the public databases that contain real-world scenes.  
 
-In this article, we test whether the proposed LLLR can help a neural network estimating the true log-likelihood ratio. The inputs and networks are simplified to multidimensional Gaussian random variables and a 3-layer fully-connected network with nonlinear activation, respectively.
-
-A simple 3-layer fully connected network performing the density ratio estimation using the loss for log-likelihood ratio estimation (LLLR).
-
-The structure of this project is inherited from [the SPRT-TANDEM code](https://github.com/TaikiMiyagawa/SPRT-TANDEM).  
+Thus, we create a toy-model estimating the probability density ratio of the two multivariate Gaussian distribution. Experimental results show that a multi-layer perceptron (MLP) trained with the proposed LLLR achieves smaller estimation error than an MLP with crossentropy (CE)-loss.
 
 ## Requirements
 This article is best read with the Chrome browser with [MathJax Plugin for GitHub](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima?hl=en).
 
 ## Experimental Settings
+In this article, we test whether the proposed LLLR can help a neural network estimating the true log-likelihood ratio. The inputs and networks are simplified to multidimensional Gaussian random variables and a 3-layer fully-connected network with nonlinear activation, respectively.
+
+A simple 3-layer fully connected network performing the density ratio estimation using the loss for log-likelihood ratio estimation (LLLR).
+
+
+
+
+
 Our experimental settings are based on Sugiyama et al. 2008, "Direct importance estimation for covariate shift adaptation":
 
 Let $p_0(x)$ be the $d$-dimensional Gaussian density with mean $(a, 0, 0, ..., 0)$ and covariance identity, and $p_1(x)$ be the $d$-dimensional Gaussian density with mean $(0, a, 0, ..., 0)$ and covariance identity. 
@@ -27,6 +32,7 @@ Here, $x$ is sampled either from $p_0$ or $p_1$. We compared 3 loss functions: (
 - cuDNN 7.6.4.38
 
 ## Tutorial 
+The structure of this repo is inherited from [the original SPRT-TANDEM code](https://github.com/TaikiMiyagawa/SPRT-TANDEM). For the details, see the README of the original code.
 - To train the MLP, use train_MLP.py. To change parameters including weights for the LLLE and CE-loss, modify .yaml files under the config folder.  
 
 - To visualize the example results, use example_results/plot_example_runs.ipynb. Also see the plot below.
