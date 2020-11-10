@@ -22,7 +22,9 @@ Here, $x$ is sampled from one of the two Gaussian distributions, $p_0$ or $p_1$,
 \left|
     y - \sigma\left(\log\hat{r_i}\right)
 \right|
-\end{equation}.
+\end{equation}
+
+where $\sigma$ is the sigmoid function.
 
 A simple Neural network consists of 3-layer fully-connected network with nonlinear activation (ReLU) is used for estimating $\hat{r}(x)$.  
 
