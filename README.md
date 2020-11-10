@@ -7,23 +7,24 @@ Thus, we create a toy-model estimating the probability density ratio of the two 
 This article is best read with the Chrome browser with [MathJax Plugin for GitHub](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima?hl=en).
 
 ## Experimental Settings
-In this article, we test whether the proposed LLLR can help a neural network estimating the true log-likelihood ratio. The inputs and networks are simplified to multidimensional Gaussian random variables and a 3-layer fully-connected network with nonlinear activation, respectively.
-
-A simple 3-layer fully connected network performing the density ratio estimation using the loss for log-likelihood ratio estimation (LLLR).
-
-
-
-
-
-Our experimental settings are based on Sugiyama et al. 2008, "Direct importance estimation for covariate shift adaptation":
-
-Let $p_0(x)$ be the $d$-dimensional Gaussian density with mean $(a, 0, 0, ..., 0)$ and covariance identity, and $p_1(x)$ be the $d$-dimensional Gaussian density with mean $(0, a, 0, ..., 0)$ and covariance identity. 
+Following Sugiyama et al. 2008 [1], Let $p_0(x)$ be the $d$-dimensional Gaussian density with mean $(2, 0, 0, ..., 0)$ and covariance identity, and $p_1(x)$ be the $d$-dimensional Gaussian density with mean $(0, 2, 0, ..., 0)$ and covariance identity. 
 
 The task for the neural network is to estimate the density ratio:
 
-$\hat{r}(x) = \frac{\hat{p}_1(x)}{\hat{p}_0(x)}$.
+\begin{equation}
+\hat{r}(x) = \frac{\hat{p}_1(x)}{\hat{p}_0(x)}.
+\end{end}
 
-Here, $x$ is sampled either from $p_0$ or $p_1$. We compared 3 loss functions: (1) KLIEP, (2) LLLR, and (3) cross-entropy loss.
+Here, $x$ is sampled either from $p_0$ or $p_1$. We compared 2 loss functions, LLLR and CE-loss.
+
+A simple Neural network consists of 3-layer fully-connected network with nonlinear activation (ReLU) is used for estimating $\hat{r}(x)$.  
+
+Evaluation metric is normalized mean squared error (NMSE, [1]):
+
+\begin{equation}
+\mathrm{NMSE} := \frac{1}{N}\sum_{i=1}^{N}\left(\frac{\hat{r}_i}{\sum_{j=1}^{N}\hat{r}_j} - \frac{r_i}{\sum_{j=1}^{N}r_j}\right)
+\end{equation}
+
 
 ## Tested Environment
 - Python 3.5
