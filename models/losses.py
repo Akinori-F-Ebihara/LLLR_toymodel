@@ -36,7 +36,7 @@ def KLIEP_lite(logits, labels):
 
 
 def get_gradient_DRE(model, x, y, training, flag_wd, calc_grad,
-                    param_CE_loss, param_LLR_loss, param_LLLR_v2, param_KLIEP_loss, param_wd):
+                    param_CE_loss, param_LLR_loss, param_KLIEP_loss, param_wd):
     """Calculate loss and/or gradients.
     Args:
         model: A tf.keras.Model object.
