@@ -12,10 +12,17 @@ Following Sugiyama et al. 2008 [1], Let $p_0(x)$ be the $d$-dimensional Gaussian
 The task for the neural network is to estimate the density ratio:
 
 \begin{equation}
-\hat{r}(x) = \frac{\hat{p}_1(x)}{\hat{p}_0(x)}.
+\hat{r}(x_i) = \frac{\hat{p}_1(x_i)}{\hat{p}_0(x_i)}.
 \end{equation}
 
-Here, $x$ is sampled either from $p_0$ or $p_1$. We compared 2 loss functions, LLLR and CE-loss.
+Here, $x$ is sampled from one of the two Gaussian distributions, $p_0$ or $p_1$, and is associated with class label $y=0$ or $y=1$, respectively. We compared 2 loss functions, CE-loss and LLLR:
+
+\begin{equation}
+\mathrm{LLLR}:= \frac{1}{N}\sum_{i=1}^{N}
+\left|
+    y - \log\hat{r_i}
+\right|
+\end{equation}.
 
 A simple Neural network consists of 3-layer fully-connected network with nonlinear activation (ReLU) is used for estimating $\hat{r}(x)$.  
 
