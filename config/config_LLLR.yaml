@@ -1,10 +1,10 @@
-root_dir: "/raid6/ebihara"
+root_dir: "/root/folder"
 project_name: "LLLR_toymodel"
-subproject_name: "LLLR_4rebuttal"
+subproject_name: "LLLR_experiment"
 name_dataset: "Multivariate_Gaussian"
-root_tblogs: "/raid6/ebihara/tensorflow/logs/LLLR_toymodel/tblogs"
-root_dblogs: "/raid6/ebihara/tensorflow/logs/LLLR_toymodel/dblogs"
-root_ckptlogs: "/raid6/ebihara/tensorflow/logs/LLLR_toymodel/ckptlogs"
+root_tblogs: "/root/folder/tensorflow/logs/LLLR_toymodel/tblogs"
+root_dblogs: "/root/folder/tensorflow/logs/LLLR_toymodel/dblogs"
+root_ckptlogs: "/root/folder/tensorflow/logs/LLLR_toymodel/ckptlogs"
 
 gpu: 0
 max_to_keep: 3
@@ -26,7 +26,7 @@ weight_decay: 0.0001
 name_optimizer: "adam"
 
 flag_resume: False
-path_resume: "/raid6/ebihara/tensorflow/logs/LLLR_toymodel/ckptlogs"
+path_resume: "/root/folder/tensorflow/logs/LLLR_toymodel/ckptlogs"
 flag_seed: False
 flag_wd: True
 seed: 7
