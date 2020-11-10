@@ -20,13 +20,6 @@ def LLLR_lite(logits, labels):
             labels - tf.math.sigmoid(LLR)))
 
 
-def LLLR_v2_lite(logits, labels):
-    # substraction is equal to LLR
-    LLR = logits[:, 1] - logits[:, 0]
-    return tf.reduce_mean(
-        tf.math.log(1 + tf.math.exp((-2 * labels + 1) * LLR)))
-    
-
 def KLIEP_lite(logits, labels):
     LLR = logits[:, 1] - logits[:, 0]
     KLIEP = tf.reduce_mean(((labels * -2) + 1) * LLR)
@@ -89,9 +82,6 @@ def get_gradient_DRE(model, x, y, training, flag_wd, calc_grad,
             loss_LLR = LLLR_lite(x, y)
             total_loss += param_LLR_loss * loss_LLR
             
-            loss_LLR_v2 = LLLR_v2_lite(x, y)
-            total_loss += param_LLLR_v2 * loss_LLR_v2
-            
             # KLIEP loss
             loss_KLIEP = KLIEP_lite(x, y)
             total_loss += param_KLIEP_loss * loss_KLIEP
@@ -104,7 +94,7 @@ def get_gradient_DRE(model, x, y, training, flag_wd, calc_grad,
                     total_loss += param_wd * wd_reg
 
         gradients = tape.gradient(total_loss, model.trainable_variables)
-        losses = [total_loss, crossentropy_loss, loss_LLR, loss_LLR_v2, loss_KLIEP, wd_reg]
+        losses = [total_loss, crossentropy_loss, loss_LLR, loss_KLIEP, wd_reg]
 
     # For validation and test
     else: 
@@ -112,7 +102,6 @@ def get_gradient_DRE(model, x, y, training, flag_wd, calc_grad,
 
         crossentropy_loss = CE_lite(x, y)
         loss_LLR = LLLR_lite(x, y)
-        loss_LLR_v2 = LLLR_v2_lite(x, y)    
         loss_KLIEP = KLIEP_lite(x, y)
         
         total_loss = crossentropy_loss + loss_LLR + loss_KLIEP
@@ -122,7 +111,7 @@ def get_gradient_DRE(model, x, y, training, flag_wd, calc_grad,
         #     wd_reg += tf.nn.l2_loss(variables)
 
         gradients = None
-        losses = [total_loss, crossentropy_loss, loss_LLR, loss_LLR_v2, loss_KLIEP, wd_reg]
+        losses = [total_loss, crossentropy_loss, loss_LLR, loss_KLIEP, wd_reg]
 
     return gradients, losses, x
 
