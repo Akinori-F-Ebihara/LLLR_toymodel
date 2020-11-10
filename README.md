@@ -6,6 +6,9 @@ A simple 3-layer fully connected network performing the density ratio estimation
 
 The structure of this project is inherited from [the SPRT-TANDEM code](https://github.com/TaikiMiyagawa/SPRT-TANDEM).  
 
+## Requirements
+This article is best read with the Chrome browser with [MathJax Plugin for GitHub](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima?hl=en).
+
 ## Experimental Settings
 Our experimental settings are based on Sugiyama et al. 2008, "Direct importance estimation for covariate shift adaptation":
 
@@ -24,16 +27,16 @@ Here, $x$ is sampled either from $p_0$ or $p_1$. We compared 3 loss functions: (
 - cuDNN 7.6.4.38
 
 ## Tutorial 
-To train the MLP, use train_MLP.py. To change parameters including weights for the LLLE and CE-loss, modify .yaml files under the config folder.  
+- To train the MLP, use train_MLP.py. To change parameters including weights for the LLLE and CE-loss, modify .yaml files under the config folder.  
 
-To visualize the example results, use example_results/plot_example_runs.ipynb. Also see the plot below.
+- To visualize the example results, use example_results/plot_example_runs.ipynb. Also see the plot below.
 
 ## Example Results
 The MLP was trained either with the LLLR or CE-loss, repeated 56 times with different random initial vairables. The plot below shows the mean NMSE with the shading shows standard error of the mean.
 ![](./example_results/LLLRvsCE_NMSE.png)
 
 ## Reference
-[1] Sugiyama, M.; Suzuki, T.; Nakajima, S.; Kashima, H.; von Bünau, P.; Kawanabe, M. Direct Importance Estimation for Covariate Shift Adaptation. Ann Inst Stat Math 2008, 60 (4), 699–746. https://doi.org/10.1007/s10463-008-0197-x.
+[1] Sugiyama, M.; Suzuki, T.; Nakajima, S.; Kashima, H.; von Bünau, P.; Kawanabe, M. Direct Importance Estimation for Covariate Shift Adaptation. Ann Inst Stat Math 2008, 60 (4), 699–746.
 
 ## Citation
 ___Please cite our paper if you use the whole or a part of our codes.___
