@@ -1,27 +1,3 @@
-# Density Ratio Estimation Experiment
-
-# In this article, we test whether the prPoposed LLLR can help a neural network estimating
-# the true log-likelihood ratio. The inputs and networks are simplified to multidimensional
-# Gaussian random variables and a 3-layer fully-connected network with nonlinear activation,
-# respectively.
-
-# Tested environment: tensorflow 2.0.0.
-
-# Nov. 4th, 2020. Akinori F. Ebihara.
-
-
-# Experiment Settings
-# Our experimental settings are based on Sugiyama et al. 2008, "Direct importance estimation for covariate shift adaptation":
-
-# Let 𝑝0(𝑥) be the 𝑑-dimensional Gaussian density with mean (𝑎,0,0,...,0) and covariance identity, and 𝑝1(𝑥) be the 𝑑-dimensional Gaussian density with mean (0,𝑎,0,...,0) and covariance identity.
-
-# The task for the neural network is to estimate the density ratio:
-
-# 𝑟̂ (𝑥)=𝑝̂ 1(𝑥)𝑝̂ 0(𝑥).
-
-# Here, 𝑥 is sampled either from 𝑝0 or 𝑝1. We compared 3 loss functions: (1) KLIEP, (2) LLLR, and (3) cross-entropy loss.
-
-
 from __future__ import absolute_import, division, print_function
 import datetime, sys
 import numpy as np
