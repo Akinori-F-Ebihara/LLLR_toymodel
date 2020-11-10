@@ -7,7 +7,7 @@ Below we test whether the proposed Loss for Log-Likelihood Ratio Loss (LLLR) can
 This article is best read with the Chrome browser with [MathJax Plugin for GitHub](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima?hl=en).
 
 ## Experimental Settings
-Following Sugiyama et al. 2008 [1], Let $p_0(x)$ be the $d$-dimensional Gaussian density with mean $(2, 0, 0, ..., 0)$ and covariance identity, and $p_1(x)$ be the $d$-dimensional Gaussian density with mean $(0, 2, 0, ..., 0)$ and covariance identity. 
+Following Sugiyama et al. 2008 [1], let $p_0(x)$ be the $d$-dimensional Gaussian density with mean $(2, 0, 0, ..., 0)$ and covariance identity, and $p_1(x)$ be the $d$-dimensional Gaussian density with mean $(0, 2, 0, ..., 0)$ and covariance identity. 
 
 The task for the neural network is to estimate the density ratio:
 
