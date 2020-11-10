@@ -1,4 +1,4 @@
-# Probability density ratio estimation with the Loss for Log-Likelihood Ratio
+# Probability density ratio estimation with the Loss for Log-Likelihood Ratio (LLLR)
 This article supplements our paper, [Deep Neural Networks for the Sequential Probability Ratio Test on Non-i.i.d. Data Series](https://arxiv.org/abs/2006.05587).  
 
 Below we test whether the proposed Loss for Log-Likelihood Ratio Loss (LLLR) can help a neural network estimating the true probability density ratio. Providing the ground-truth probability density ratio was difficult in the original paper because it was prohibitive to find the true probability distribution out of the public databases containing real-world scenes. Thus, we create a toy-model estimating the probability density ratio of the two multivariate Gaussian distributions. Experimental results show that a multi-layer perceptron (MLP) trained with the proposed LLLR achieves smaller estimation error than an MLP with crossentropy (CE)-loss.
