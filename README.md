@@ -1,13 +1,13 @@
 # Probability density ratio estimation with the Loss for Log-Likelihood Ratio
-This article supplements our paper, [Deep Neural Networks for the Sequential Probability Ratio Test on Non-i.i.d. Data Series](https://arxiv.org/abs/2006.05587). Below we test whether the proposed Loss for Log-Likelihood Ratio Loss (LLLR) can help a neural network estimating the true probability density ratio. Providing ground-trugh probability density ratio was difficult in the original paper: this was because it was prohibitive to find the true probability distribution out of the public databases that contain real-world scenes.  
+This article supplements our paper, [Deep Neural Networks for the Sequential Probability Ratio Test on Non-i.i.d. Data Series](https://arxiv.org/abs/2006.05587).  
 
-Thus, we create a toy-model estimating the probability density ratio of the two multivariate Gaussian distribution. Experimental results show that a multi-layer perceptron (MLP) trained with the proposed LLLR achieves smaller estimation error than an MLP with crossentropy (CE)-loss.
+Below we test whether the proposed Loss for Log-Likelihood Ratio Loss (LLLR) can help a neural network estimating the true probability density ratio. Providing the ground-truth probability density ratio was difficult in the original paper because it was prohibitive to find the true probability distribution out of the public databases containing real-world scenes. Thus, we create a toy-model estimating the probability density ratio of the two multivariate Gaussian distributions. Experimental results show that a multi-layer perceptron (MLP) trained with the proposed LLLR achieves smaller estimation error than an MLP with crossentropy (CE)-loss.
 
 ## Requirements
 This article is best read with the Chrome browser with [MathJax Plugin for GitHub](https://chrome.google.com/webstore/detail/mathjax-plugin-for-github/ioemnmodlmafdkllaclgeombjnmnbima?hl=en).
 
 ## Experimental Settings
-Following Sugiyama et al. 2008 [1], Let $p_0(x)$ be the $d$-dimensional Gaussian density with mean $(2, 0, 0, ..., 0)$ and covariance identity, and $p_1(x)$ be the $d$-dimensional Gaussian density with mean $(0, 2, 0, ..., 0)$ and covariance identity. 
+Following Sugiyama et al. 2008 [1], let $p_0(x)$ be the $d$-dimensional Gaussian density with mean $(2, 0, 0, ..., 0)$ and covariance identity, and $p_1(x)$ be the $d$-dimensional Gaussian density with mean $(0, 2, 0, ..., 0)$ and covariance identity. 
 
 The task for the neural network is to estimate the density ratio:
 
