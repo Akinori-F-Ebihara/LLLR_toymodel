@@ -53,7 +53,7 @@ The structure of this repo is inherited from [the original SPRT-TANDEM repo](htt
 
 ## Example Results
 The MLP was trained either with the LLLR or CE-loss, repeated 56 times with different random initial vairables. The plot below shows the mean NMSE with the shading shows standard error of the mean.
-![](./example_results/LLLRvsCE_NMSE.png)
+![CEvsLLLR](./example_results/LLLRvsCE_NMSE.png)
 
 ## Reference
 [1] Sugiyama, M.; Suzuki, T.; Nakajima, S.; Kashima, H.; von Bünau, P.; Kawanabe, M. Direct Importance Estimation for Covariate Shift Adaptation. Ann Inst Stat Math 2008, 60 (4), 699–746.
