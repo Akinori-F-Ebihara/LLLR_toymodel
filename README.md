@@ -35,7 +35,7 @@ Evaluation metric is normalized mean squared error (NMSE, [1]):
 \left(
     \frac{\hat{r_j}}{\sum_{j=1}^{N}\hat{r_j}} -
     \frac{r_i}{\sum_{j=1}^{N}r_j}
-\right)
+\right)^2
 \end{equation}
 
 
