@@ -52,7 +52,7 @@ The structure of this repo is inherited from [the original SPRT-TANDEM repo](htt
 - To visualize the example results, use example_results/plot_example_runs.ipynb. Also see the plot below.
 
 ## Example Results
-The MLP was trained either with the LLLR or CE-loss, repeated 56 times with different random initial vairables. The plot below shows the mean NMSE with the shading shows standard error of the mean.
+The MLP was trained either with the LLLR or CE-loss, repeated 40 times with different random initial vairables. The plot below shows the mean NMSE with the shading shows standard error of the mean.
 ![CEvsLLLR](./example_results/LLLRvsCE_NMSE.png)
 
 ## Reference
